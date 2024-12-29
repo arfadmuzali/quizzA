@@ -1,23 +1,18 @@
 "use client";
 
-import { useEffect } from "react";
 import { AlertCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
 
-export default function Error({
-  error,
-  reset,
-}: {
-  error: Error & { digest?: string };
-  reset: () => void;
+export default function Error({}: // error,
+// reset,
+{
+  // error: Error & { digest?: string };
+  // reset: () => void;
 }) {
-  useEffect(() => {
-    // Log the error to an error reporting service
-    console.error(error);
-  }, [error]);
-
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-50 to-blue-50 p-4">
+    <div className="min-h-[70vh] flex items-center justify-center p-4">
       <div className="max-w-md w-full">
         <div className="bg-white rounded-lg shadow-xl p-6 md:p-8 space-y-6 relative overflow-hidden">
           {/* Decorative elements */}
@@ -45,29 +40,30 @@ export default function Error({
 
             {/* Action Buttons */}
             <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-              <Button
+              {/* <Button
                 onClick={reset}
                 className="bg-orange-500 hover:bg-orange-600 text-white"
               >
                 Try again
-              </Button>
-              <Button
-                onClick={() => (window.location.href = "/")}
-                variant="outline"
-                className="border-blue-500 text-blue-500 hover:bg-blue-50"
+              </Button> */}
+              <Link
+                href={"/"}
+                // onClick={() => (window.location.href = "/")}
+
+                className={cn(buttonVariants({ variant: "secondary" }))}
               >
                 Go home
-              </Button>
+              </Link>
             </div>
 
             {/* Error Details */}
-            {process.env.NODE_ENV === "development" && (
+            {/* {process.env.NODE_ENV === "development" && (
               <div className="mt-6 p-4 bg-gray-50 rounded-lg">
                 <p className="text-sm text-gray-600 font-mono">
                   {error?.message}
                 </p>
               </div>
-            )}
+            )} */}
           </div>
         </div>
       </div>
