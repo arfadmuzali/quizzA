@@ -1,0 +1,74 @@
+{
+  "Home": {
+    "title": "Challenge Yourself, Master Everything!",
+    "description": "QuizzA is the perfect app to challenge your mind and level up your knowledge. With a variety of fun quizzes, you can test your skills and master new topics every day. Ready to take on the challenge?",
+    "source": "Source",
+    "heroCta": "Lets Start It Now"
+  },
+  "NavBar": {
+    "signin": "SignIn",
+    "login": "LogIn"
+  },
+  "NotFound": {
+    "title": "Not Found",
+    "description": "Sorry, we couldn't find what you're looking for",
+    "cta": "Return Home"
+  },
+  "auth": {
+    "login": "Log in to QuizzA",
+    "signup": "Sign up",
+    "signin": "Sign in",
+    "signout": "Sign Out",
+    "signoutDescription": "Are you sure you want to sign out?",
+    "loginDescription": "Enter your credentials to sign in to your account",
+    "signupDescription": "Create new account",
+    "email": "Email",
+    "password": "Password",
+    "errorEmail": "Please enter a valid email address.",
+    "errorPassword": "Password must be at least 8 characters.",
+    "loginBottomText": "Don't have an account?",
+    "signupBottomText": "Already have an account?",
+    "verificationTitle": "Check your email",
+    "verificationDescription": "We've sent a verification link to your email address. Please check your inbox and verify your account.",
+    "dashboard": "Dashboard",
+    "logout": "LogOut"
+  },
+
+  "dashboard": {
+    "noneQuizTitle": "Start Creating Quizzes",
+    "noneQuizDescription": "Create your first quiz and engage your audience with interactive questions and instant feedback.",
+    "noneQuizCta": "Create your first quiz",
+    "createQuizDescription": "Create new quiz and engage your audience",
+    "createQuiz": "Create Quiz",
+    "totalQuizzes": "Total Quizzes",
+    "quizzes": "Quizzes",
+    "questions": "questions",
+    "edit": "Edit",
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "deleteQuiz": "Delete Quiz",
+    "deleteQuizDescription": "Are you sure you want to delete this Quiz? This action cannot be undone."
+  },
+
+  "createQuiz": {
+    "quizTitle": "Quiz Title",
+    "quizTitlePlaceholder": "Enter quiz title",
+    "quizDescription": "Description",
+    "quizDescriptionPlaceholder": "Enter quiz description",
+
+    "question": "Question",
+    "questionPlaceholder": "Enter The Question",
+    "addQuestion": "Add Question",
+    "options": "Options",
+    "option": "option",
+    "addOption": "Add Option",
+
+    "deleteQuestion": "Delete Question",
+    "deleteQuestionDescription": "Are you sure you want to delete this question? This action cannot be undone.",
+    "cancel": "Cancel",
+    "delete": "delete",
+
+    "createQuiz": "Create Quiz",
+    "updateQuiz": "Update Quiz"
+  }
+}

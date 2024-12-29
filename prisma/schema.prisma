@@ -1,0 +1,72 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Prisma schema for a Quiz application with RLS policies
+
+// Define the User model, assumed to exist as part of Supabase Auth.
+model User {
+  id    String  @id @default(uuid()) // Unique identifier for each user
+  quiz  Quiz[] // One-to-many relation to Quiz (a user can create multiple quizzes)
+  score Score[] // One-to-many relation to Score (a user can have multiple scores)
+}
+
+// Define the Quiz model
+model Quiz {
+  id          Int        @id @default(autoincrement()) // Unique identifier for each quiz
+  title       String // Title of the quiz
+  description String? // Optional description for the quiz
+  creatorId   String // Foreign key to the User who created the quiz
+  creator     User       @relation(fields: [creatorId], references: [id]) // Relation to the User model
+  createdAt   DateTime   @default(now()) // Timestamp when the quiz was created
+  updatedAt   DateTime   @updatedAt // Timestamp when the quiz was last updated
+  questions   Question[] // One-to-many relation to the Question model
+  scores      Score[] // One-to-many relation to the Score model
+}
+
+// Define the Question model
+model Question {
+  id        Int      @id @default(autoincrement()) // Unique identifier for each question
+  quizId    Int // Foreign key to the Quiz the question belongs to
+  quiz      Quiz     @relation(fields: [quizId], references: [id]) // Relation to the Quiz model
+  text      String // The text/content of the question
+  createdAt DateTime @default(now()) // Timestamp when the question was created
+  options   Option[] // One-to-many relation to the Option model
+}
+
+// Define the Option model
+model Option {
+  id         Int      @id @default(autoincrement()) // Unique identifier for each option
+  questionId Int // Foreign key to the Question the option belongs to
+  question   Question @relation(fields: [questionId], references: [id]) // Relation to the Question model
+  text       String // The text/content of the option
+  isCorrect  Boolean  @default(false) // Boolean indicating if the option is the correct answer
+}
+
+// Define the Score model
+model Score {
+  id        Int      @id @default(autoincrement()) // Unique identifier for each score
+  quizId    Int // Foreign key to the Quiz the score is related to
+  quiz      Quiz     @relation(fields: [quizId], references: [id]) // Relation to the Quiz model
+  userId    String // Foreign key to the User who took the quiz
+  user      User     @relation(fields: [userId], references: [id]) // Relation to the User model
+  score     Int // The score achieved by the user for the quiz
+  createdAt DateTime @default(now()) // Timestamp when the score was created
+}
+
+// NOTE: The following policies are applied via Row Level Security (RLS) at the database level (as previously defined):
+// 1. Public can read quizzes, questions, and options.
+// 2. Only authenticated users can create quizzes and add their scores.
+// 3. Only the creator can update or delete their quizzes.
+// 4. Only the authenticated user can view, insert, update, or delete their own score.
