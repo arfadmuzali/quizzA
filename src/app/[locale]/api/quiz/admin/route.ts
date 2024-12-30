@@ -19,7 +19,6 @@ export async function GET(request: NextRequest) {
       .from("quiz")
       .select("*, question (count)")
       .eq("creator_id", user?.user.id);
-    console.log("quizError", quizError);
 
     if (quizError) {
       return NextResponse.json(

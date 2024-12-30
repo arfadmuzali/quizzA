@@ -56,7 +56,7 @@ export default function Hero() {
           {t("description")}
         </p>
         <Link
-          href={"#"}
+          href={"#quizzes"}
           className={cn(
             buttonVariants({ variant: "default" }),
             "mt-5",

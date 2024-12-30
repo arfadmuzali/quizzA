@@ -95,7 +95,6 @@ export default function UpdateQuizPage({
     },
   });
 
-  console.log(Quiz);
   const {
     control,
     handleSubmit,

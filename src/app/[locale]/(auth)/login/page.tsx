@@ -57,7 +57,6 @@ export default function LoginPage() {
       window.location.reload();
       router.push("/");
 
-      console.log("Login Success:", response.data.user);
       toast.success("Login success");
     } catch (error: any) {
       toast.error(

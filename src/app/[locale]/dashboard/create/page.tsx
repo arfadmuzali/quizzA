@@ -30,7 +30,6 @@ import { useRouter } from "next/navigation";
 
 async function createQuiz(data: QuizDTO) {
   const response = await authApi.post("/api/quiz", data);
-  console.log(response.data);
   if (response.data?.error) {
     throw new Error(response.data?.error?.message || "Failed to submit quiz");
   }
@@ -60,7 +59,6 @@ export default function CreateQuizPage() {
       ],
     },
   });
-  console.log(errors);
 
   const {
     fields: questionFields,
@@ -75,7 +73,6 @@ export default function CreateQuizPage() {
     mutationFn: createQuiz,
     onSuccess: (data) => {
       toast.success("Success create new quiz");
-      console.log("Quiz submitted successfully:", data);
       router.push("/dashboard");
     },
     onError: (error) => {
@@ -86,7 +83,6 @@ export default function CreateQuizPage() {
   });
 
   const onSubmit = async (data: QuizDTO) => {
-    console.log(data);
     await mutation.mutateAsync(data);
   };
 

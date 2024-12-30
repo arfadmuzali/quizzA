@@ -47,7 +47,8 @@
     "delete": "Delete",
     "cancel": "Cancel",
     "deleteQuiz": "Delete Quiz",
-    "deleteQuizDescription": "Are you sure you want to delete this Quiz? This action cannot be undone."
+    "deleteQuizDescription": "Are you sure you want to delete this Quiz? This action cannot be undone.",
+    "startQuiz": "Start quiz"
   },
 
   "createQuiz": {
@@ -70,5 +71,24 @@
 
     "createQuiz": "Create Quiz",
     "updateQuiz": "Update Quiz"
+  },
+
+  "play": {
+    "question": "Question",
+    "of": "of",
+    "finish": "Finish",
+    "next": "Next",
+    "previous": "Previous",
+    "resultTitle": "Learning is a journey. Keep going, and you'll get there.",
+    "grade": "Grade",
+    "totalQuestion": "Total Questions",
+    "correctAnswer": "Correct Answer",
+    "score": "Score",
+    "playAgain": "Play Again",
+    "backToHome": "Back To Home",
+    "alertTitle": "Are you sure you want to submit?",
+    "alertDescription": "Once you submit, you will not be able to change your answers.",
+    "cancel": "Cancel",
+    "submit": "Submit"
   }
 }

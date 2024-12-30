@@ -83,7 +83,6 @@ export async function GET(
         { status: 400 }
       );
     }
-    console.log(data);
     return NextResponse.json(data[0]);
   } catch (error) {
     return NextResponse.json(
@@ -108,8 +107,6 @@ export async function PUT(
 
     const body = await request.json();
     const { data: updateDto, error } = await QuizSchema.safeParseAsync(body);
-
-    console.log(updateDto?.questions);
 
     if (error) {
       return NextResponse.json(

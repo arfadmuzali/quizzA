@@ -97,3 +97,29 @@ export async function POST(request: NextRequest) {
     );
   }
 }
+
+export async function GET() {
+  try {
+    const supabase = await createClient();
+
+    const { data: quizzes, error } = await supabase
+      .from("quiz")
+      .select("*, question(count)")
+      // .limit(12)
+      .order("id", { ascending: false });
+
+    if (error) {
+      return NextResponse.json(
+        { error: { message: "Database Error: eror when get quiz" } },
+        { status: 500 }
+      );
+    }
+
+    return NextResponse.json(quizzes);
+  } catch (error) {
+    return NextResponse.json(
+      { error: { message: "Internal Server Error" } },
+      { status: 500 }
+    );
+  }
+}

@@ -33,7 +33,6 @@ export default async function LocaleLayout({ children, params }: Props) {
       <QueryLayout>
         <NavBar locale={locale as Locale} />
         {children}
-        <div className="h-screen"></div>
         <Footer />
       </QueryLayout>
 
