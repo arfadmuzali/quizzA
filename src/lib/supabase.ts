@@ -1,10 +1,5 @@
-import { createClient } from "@supabase/supabase-js";
 import { NextRequest } from "next/server";
-
-export const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-);
+import { createClient } from "./supabase/server";
 
 export const validateAuth = async (request: NextRequest) => {
   const authHeader = request.headers.get("Authorization");
@@ -12,6 +7,8 @@ export const validateAuth = async (request: NextRequest) => {
   if (!authHeader) {
     return { error: "No authorization header" };
   }
+
+  const supabase = await createClient();
 
   const token = authHeader.split(" ")[1];
   const { data: user, error } = await supabase.auth.getUser(token);

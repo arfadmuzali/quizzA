@@ -5,15 +5,6 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
   try {
-    const { error, user } = await validateAuth(request);
-
-    if (error) {
-      return NextResponse.json(
-        { error: { message: "Unauthorization" } },
-        { status: 401 }
-      );
-    }
-
     const body = await request.json();
 
     const { error: responseError, data } = await QuizSchema.safeParseAsync(
@@ -28,6 +19,15 @@ export async function POST(request: NextRequest) {
     }
 
     const supabase = await createClient();
+
+    const { error, user } = await validateAuth(request);
+
+    if (error) {
+      return NextResponse.json(
+        { error: { message: "Unauthorization" } },
+        { status: 401 }
+      );
+    }
 
     const { data: quizData, error: quizError } = await supabase
       .from("quiz")

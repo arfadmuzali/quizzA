@@ -9,7 +9,6 @@ import {
 } from "@/components/ui/form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input";
-import { supabase } from "@/lib/supabase";
 import { useLocale, useTranslations } from "next-intl";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -21,6 +20,7 @@ import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { LoadingSpinner } from "@/components/ui/loadingSpinner";
+import { createClient } from "@/lib/supabase/client";
 
 export default function LoginPage() {
   const t = useTranslations("auth");
@@ -53,6 +53,7 @@ export default function LoginPage() {
         email: values.email,
         password: values.password,
       });
+      const supabase = createClient();
       await supabase.auth.getSession();
       window.location.reload();
       router.push("/");
