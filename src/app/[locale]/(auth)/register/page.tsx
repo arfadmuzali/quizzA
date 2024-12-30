@@ -53,7 +53,7 @@ export default function LoginPage() {
         email: values.email,
         password: values.password,
       });
-      router.push("/login");
+      router.push("/register/verification");
 
       toast.success("Register success");
     } catch (error: any) {
@@ -122,7 +122,7 @@ export default function LoginPage() {
                 href="/login"
                 className="text-orange-500 hover:underline mx-2"
               >
-                {t("signin")}{" "}
+                {t("signup")}{" "}
               </Link>
             </div>
           </form>

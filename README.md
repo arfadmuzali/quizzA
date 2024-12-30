@@ -1,4 +1,4 @@
-# [QuizzA](https://mabel-mania.vercel.app/)
+# [QuizzA](https://quizza-zeta.vercel.app/)
 
 QuizzA is an open-source quiz application designed to offer an engaging and interactive experience. Inspired by platforms like Quizizz, QuizzA allows users to create and take quizzes seamlessly. Built with Next.js, Tailwind CSS, and powered by Supabase for authentication and database management, it provides a fast, reliable, and user-friendly platform for both quiz creators and participants. Whether you're looking to test your knowledge or create your own quizzes, QuizzA is the perfect tool to make learning fun and easy.
 
@@ -47,6 +47,8 @@ QuizzA is an open-source quiz application designed to offer an engaging and inte
 5. Ensure Supabase services, such as the database and Row Level Security (RLS), are running as required.
 
 ## Deployment
+
+# you can visit QuizzA here: [QuizzA](https://quizza-zeta.vercel.app/)
 
 To deploy QuizzA on Vercel:
 
